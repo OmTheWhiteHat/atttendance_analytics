@@ -1,0 +1,82 @@
+attendance-system/
+├── backend/                       # Central server (online DB + APIs)
+│   ├── controllers/
+│   │   ├── attendanceController.js
+│   │   ├── sessionController.js
+│   │   ├── studentController.js
+│   │   ├── teacherController.js
+│   │   └── authController.js
+│   ├── models/
+│   │   ├── Attendance.js          # Central DB model
+│   │   ├── Session.js
+│   │   ├── Student.js
+│   │   ├── Teacher.js
+│   │   ├── Admin.js
+│   │   └── Biometric.js           # Face descriptors + fingerprint hashes
+│   ├── routes/
+│   │   ├── attendanceRoutes.js
+│   │   ├── sessionRoutes.js
+│   │   ├── studentRoutes.js
+│   │   ├── teacherRoutes.js
+│   │   └── authRoutes.js
+│   ├── utils/
+│   │   ├── qrGenerator.js
+│   │   ├── proximityChecker.js
+│   │   ├── analyticsHelper.js
+│   │   └── biometricHelper.js
+│   ├── config/
+│   │   └── db.js                  # Central DB connection (MongoDB/PostgreSQL)
+│   ├── middleware/
+│   │   ├── authMiddleware.js
+│   │   └── errorMiddleware.js
+│   └── server.js
+│
+├── frontend/
+│   ├── public/
+│   │   └── qr-codes/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── biometric/
+│   │   │   │   ├── FaceLogin.js
+│   │   │   │   └── FingerprintLogin.js
+│   │   │   ├── charts/
+│   │   │   ├── tables/
+│   │   │   ├── session/
+│   │   │   └── gamification/
+│   │   ├── pages/
+│   │   │   ├── _app.js
+│   │   │   ├── index.js
+│   │   │   ├── login.js
+│   │   │   ├── student/
+│   │   │   │   ├── dashboard.js
+│   │   │   │   └── attendance.js
+│   │   │   ├── teacher/
+│   │   │   │   ├── dashboard.js
+│   │   │   │   ├── session.js
+│   │   │   │   └── analytics.js
+│   │   │   ├── admin/
+│   │   │   │   ├── dashboard.js
+│   │   │   │   └── analytics.js
+│   │   ├── context/
+│   │   │   └── AuthContext.js
+│   │   ├── hooks/
+│   │   │   ├── useAttendance.js
+│   │   │   ├── useSession.js
+│   │   │   └── useBiometric.js
+│   │   ├── services/
+│   │   │   └── api.js              # Axios calls to central backend
+│   │   ├── offline/               # Offline-first layer
+│   │   │   ├── db.js               # IndexedDB/Dexie setup for offline storage
+│   │   │   ├── syncManager.js      # Handles syncing offline data with central DB
+│   │   │   └── offlineUtils.js
+│   │   ├── styles/
+│   │   │   └── globals.css
+│   │   └── utils/
+│   │       ├── dateHelper.js
+│   │       └── scoreCalculator.js
+│   └── next.config.js
+│
+├── .env
+├── package.json
+├── README.md
+└── tailwind.config.js
